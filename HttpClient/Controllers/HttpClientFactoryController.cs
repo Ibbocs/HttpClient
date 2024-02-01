@@ -15,7 +15,7 @@ namespace HttpClient.Controllers
             _httpClientFactory = httpClientFactory;
         }
 
-        [HttpGet]
+        [HttpGet("my-get")]
         public async Task<List<Todo>> Get()
         {
 
