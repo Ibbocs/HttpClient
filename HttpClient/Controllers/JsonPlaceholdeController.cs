@@ -15,20 +15,15 @@ namespace HttpClient.Controllers
         //private readonly IHttpClientFactory _httpClientFactory;
 
         private string baseUrl = "https://jsonplaceholder.typicode.com/";
-        //private System.Net.Http.HttpClient _client;
 
-        //public JsonPlaceholdeController(System.Net.Http.HttpClient client)
-        //{
-        //    _client = client;
-        //    client.BaseAddress = new Uri(baseUrl);
-        //}
+
 
 
         [HttpGet]
         public async Task<List<Todo>> Get()
         {
             //var client = _httpClientFactory.CreateClient();
-
+           
             using (System.Net.Http.HttpClient client = new System.Net.Http.HttpClient())
             {
                 try
@@ -38,7 +33,7 @@ namespace HttpClient.Controllers
                     //var response = await client.GetStringAsync("todos");
                     HttpResponseMessage response = await client.GetAsync("todos");
 
-                    string data = await response.Content.ReadAsStringAsync();
+                    //string data = await response.Content.ReadAsStringAsync();
 
                     //var model = JsonConvert.DeserializeObject<List<Todo>>(data);
 
@@ -65,7 +60,7 @@ namespace HttpClient.Controllers
         {
 
             using System.Net.Http.HttpClient client = new System.Net.Http.HttpClient();
-            client.BaseAddress= new Uri(baseUrl);
+            client.BaseAddress = new Uri(baseUrl);
 
             //var contentModel = JsonConvert.SerializeObject(model);         //bunu yazmayanda data null gedir
             //var myContent = new StringContent(contentModel, Encoding.UTF8, "application/json");
